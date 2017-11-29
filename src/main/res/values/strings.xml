@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NFSpeedway</string>
+    <string name="facebook_app_id">492055044506434</string>
+    <string name="fb_login_protocol_scheme">fb492055044506434</string>
+    <string name="welcome">Bem vindo</string>
+    <string name="logout">Encerrar sessão</string>
 </resources>
