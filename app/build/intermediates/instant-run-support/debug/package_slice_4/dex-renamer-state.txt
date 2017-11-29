@@ -1,0 +1,4 @@
+#Wed Nov 22 00:33:29 BRST 2017
+base.0=D\:\\UTFPR\\6 Periodo\\Mobile\\NFSpeedway\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_4
+renamed.0=classes.dex
+file.0=D\:\\UTFPR\\6 Periodo\\Mobile\\NFSpeedway\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_4\\classes.dex

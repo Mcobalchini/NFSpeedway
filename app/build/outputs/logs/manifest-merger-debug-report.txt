@@ -1,0 +1,170 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:2:1-43:12
+	package
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:3:5-36
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:4:22-64
+application
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:5:5-41:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\eb51607c16ec939673284a670c467c731f33f3eb\output\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\00f930b89a82468e898e5d73efee7606aedc6984\output\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-share:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\6ab5e7a38bbb5ed79c1cb6bd50cccf2a0c457c57\output\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-common:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\800006788d3cde534ef7dea548f6c2236de12d2f\output\AndroidManifest.xml:28:5-34:19
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\c7c6f2c1b5f4ac90917cfacda3d8e943d4594988\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\68bc75be3f56683774862665a00d3d111da1bf29\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\2ba97183450360f4d03bb8e49dce0232f368862c\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\4f521a401f7513244c634a9866a57cebc4c3d300\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:customtabs:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\30ab860be81fb9cc11867195e1c672c1096d01b8\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\33730318c85742770d8b5d928d035f54a0ef67e3\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\badb705784db88b67520f978bb3ed7c476264674\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\5723eb05ae87b1c4ee8216badc9e8857c24960e2\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\84ee104bb46e3780df6a1402098888e6d2aa980a\output\AndroidManifest.xml:29:5-20
+MERGED from [com.facebook.android:facebook-places:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\d03a9b6b7a842d4ed919fc11e47b789d4a83ae5b\output\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-applinks:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\b7c53f65c319d874ccd764b04690b4ce825ba0db\output\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-messenger:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\a0f56b7569b0f04c7af1b4c76847e67660b1f8e5\output\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-core:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\85572548bf93346d1ba3e805ec113775056c01e7\output\AndroidManifest.xml:28:5-43:19
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\0358cd5838846219c9d23dcb8b0d779e7ca3998c\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\29e96fb85b252166046d2254c8e315a041b1b8aa\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Matheus Eduardo\.android\build-cache\dc0c868c450711927296214d70a0498ee4ec244c\output\AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:10:9-35
+	android:roundIcon
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:9:9-54
+	android:allowBackup
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:11:9-40
+activity#nfspeedway.nfspeedway.LoginActivity
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:13:9-18:20
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:13:19-48
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:14:9-17:25
+action#android.intent.action.MAIN
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:15:13-65
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:15:21-62
+category#android.intent.category.LAUNCHER
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:16:13-73
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:16:23-70
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:20:9-22:55
+	android:value
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:22:13-52
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:21:13-58
+activity#com.facebook.FacebookActivity
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:24:9-27:48
+MERGED from [com.facebook.android:facebook-common:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\800006788d3cde534ef7dea548f6c2236de12d2f\output\AndroidManifest.xml:29:9-32:66
+	android:label
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:27:13-45
+	android:configChanges
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:26:13-96
+	android:theme
+		ADDED from [com.facebook.android:facebook-common:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\800006788d3cde534ef7dea548f6c2236de12d2f\output\AndroidManifest.xml:32:13-63
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:25:13-57
+activity#com.facebook.CustomTabActivity
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:28:9-39:20
+	android:exported
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:29:13-58
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:31:13-38:29
+action#android.intent.action.VIEW
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:32:17-69
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:32:25-66
+category#android.intent.category.DEFAULT
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:34:17-76
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:34:27-73
+category#android.intent.category.BROWSABLE
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:35:17-78
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:35:27-75
+data
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:37:17-75
+	android:scheme
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:37:23-72
+activity#nfspeedway.nfspeedway.MainActivity
+ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:40:9-50
+	android:name
+		ADDED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml:40:19-47
+uses-sdk
+INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.facebook.android:facebook-android-sdk:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\eb51607c16ec939673284a670c467c731f33f3eb\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\00f930b89a82468e898e5d73efee7606aedc6984\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-share:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\6ab5e7a38bbb5ed79c1cb6bd50cccf2a0c457c57\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\800006788d3cde534ef7dea548f6c2236de12d2f\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\c7c6f2c1b5f4ac90917cfacda3d8e943d4594988\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\68bc75be3f56683774862665a00d3d111da1bf29\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\2ba97183450360f4d03bb8e49dce0232f368862c\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\4f521a401f7513244c634a9866a57cebc4c3d300\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:customtabs:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\30ab860be81fb9cc11867195e1c672c1096d01b8\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\33730318c85742770d8b5d928d035f54a0ef67e3\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\badb705784db88b67520f978bb3ed7c476264674\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\5723eb05ae87b1c4ee8216badc9e8857c24960e2\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\84ee104bb46e3780df6a1402098888e6d2aa980a\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.facebook.android:facebook-places:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\d03a9b6b7a842d4ed919fc11e47b789d4a83ae5b\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-applinks:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\b7c53f65c319d874ccd764b04690b4ce825ba0db\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-messenger:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\a0f56b7569b0f04c7af1b4c76847e67660b1f8e5\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\85572548bf93346d1ba3e805ec113775056c01e7\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\0358cd5838846219c9d23dcb8b0d779e7ca3998c\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\29e96fb85b252166046d2254c8e315a041b1b8aa\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Matheus Eduardo\.android\build-cache\dc0c868c450711927296214d70a0498ee4ec244c\output\AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\c7c6f2c1b5f4ac90917cfacda3d8e943d4594988\output\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+		INJECTED from D:\UTFPR\6 Periodo\Mobile\NFSpeedway\app\src\main\AndroidManifest.xml
+activity#com.facebook.CustomTabMainActivity
+ADDED from [com.facebook.android:facebook-common:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\800006788d3cde534ef7dea548f6c2236de12d2f\output\AndroidManifest.xml:33:9-71
+	android:name
+		ADDED from [com.facebook.android:facebook-common:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\800006788d3cde534ef7dea548f6c2236de12d2f\output\AndroidManifest.xml:33:19-68
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\c7c6f2c1b5f4ac90917cfacda3d8e943d4594988\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\68bc75be3f56683774862665a00d3d111da1bf29\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\2ba97183450360f4d03bb8e49dce0232f368862c\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\4f521a401f7513244c634a9866a57cebc4c3d300\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:customtabs:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\30ab860be81fb9cc11867195e1c672c1096d01b8\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\33730318c85742770d8b5d928d035f54a0ef67e3\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\badb705784db88b67520f978bb3ed7c476264674\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\5723eb05ae87b1c4ee8216badc9e8857c24960e2\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\84ee104bb46e3780df6a1402098888e6d2aa980a\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\0358cd5838846219c9d23dcb8b0d779e7ca3998c\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\29e96fb85b252166046d2254c8e315a041b1b8aa\output\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\c7c6f2c1b5f4ac90917cfacda3d8e943d4594988\output\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Matheus Eduardo\.android\build-cache\c7c6f2c1b5f4ac90917cfacda3d8e943d4594988\output\AndroidManifest.xml:26:9-47
+provider#com.facebook.internal.FacebookInitProvider
+ADDED from [com.facebook.android:facebook-core:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\85572548bf93346d1ba3e805ec113775056c01e7\output\AndroidManifest.xml:39:9-42:40
+	android:authorities
+		ADDED from [com.facebook.android:facebook-core:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\85572548bf93346d1ba3e805ec113775056c01e7\output\AndroidManifest.xml:41:13-72
+	android:exported
+		ADDED from [com.facebook.android:facebook-core:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\85572548bf93346d1ba3e805ec113775056c01e7\output\AndroidManifest.xml:42:13-37
+	android:name
+		ADDED from [com.facebook.android:facebook-core:4.28.0] C:\Users\Matheus Eduardo\.android\build-cache\85572548bf93346d1ba3e805ec113775056c01e7\output\AndroidManifest.xml:40:13-70
