@@ -1,78 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="0dp"
-    android:layout_marginLeft="4dp"
-    android:layout_marginRight="4dp"
-    android:layout_marginTop="0dp"
-    app:cardCornerRadius="4dp"
-    app:cardElevation="3dp"
-    app:cardMaxElevation="3dp"
-    app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="false">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="157dp">
+    <android.support.v7.widget.CardView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="3dp"
+        app:cardMaxElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="157dp">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="62dp"
+                android:layout_height="61dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_Name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_id"
+                app:layout_constraintTop_toTopOf="@+id/tv_id"
+                app:layout_constraintVertical_bias="1.0"
+                tools:layout_constraintBottom_creator="1"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="1" />
+
+            <TextView
+                android:id="@+id/tv_id"
+                android:layout_width="235dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="1"
+                android:layout_marginRight="16dp"
+                tools:layout_editor_absoluteX="108dp" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/com_facebook_loginview_default_style"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginTop="20dp"
+                android:onClick="logout"
+                android:text="Sair"
+                android:textColorLink="@drawable/com_facebook_button_background"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Name"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="1"
+                tools:layout_editor_absoluteX="233dp" />
+
+            <TextView
+                android:id="@+id/tv_Name"
+                android:layout_width="236dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintRight_toRightOf="@+id/tv_id"
+                app:layout_constraintTop_toBottomOf="@+id/tv_id"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="1"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toRightOf="@+id/profileImage"
+                android:layout_marginLeft="8dp"
+                tools:layout_editor_absoluteX="107dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:text="@string/welcome"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="parent"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_id"
+                tools:layout_constraintBaseline_creator="1"
+                tools:layout_constraintLeft_creator="1" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="3dp"
+        app:cardMaxElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp">
+
+
 
         <TextView
-            android:id="@+id/tv_id"
-            android:layout_width="244dp"
-            android:layout_height="26dp"
-            tools:layout_editor_absoluteX="124dp"
-            tools:layout_editor_absoluteY="37dp"
-            android:layout_below="@+id/textView"
-            android:layout_alignStart="@+id/tv_Name"
-            android:layout_marginTop="12dp" />
-
-        <Button
-            android:id="@+id/button2"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="143dp"
-            android:layout_height="40dp"
-            android:onClick="logout"
-            android:text="Sair"
-            tools:layout_editor_absoluteX="218dp"
-            tools:layout_editor_absoluteY="131dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignEnd="@+id/tv_Name"
-            android:layout_marginEnd="12dp" />
-
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="99dp"
-            android:layout_height="68dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/tv_id"
-            android:layout_marginStart="12dp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="37dp" />
+            android:id="@+id/tvVelocidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="50pt" />
 
         <TextView
-            android:id="@+id/tv_Name"
-            android:layout_width="244dp"
-            android:layout_height="28dp"
-            tools:layout_editor_absoluteX="124dp"
-            tools:layout_editor_absoluteY="77dp"
-            android:layout_alignBottom="@+id/profileImage"
-            android:layout_toEndOf="@+id/profileImage" />
-
-        <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/tv_Name"
-            android:layout_centerInParent="false"
-            android:layout_marginStart="48dp"
-            android:text="@string/welcome"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="160dp"
-            tools:layout_editor_absoluteY="6dp" />
+            android:id="@+id/distance"/>
 
-    </RelativeLayout>
-</android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/updated"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciar"
+            android:onClick="iniciarCalcMedia"/>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>
