@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.edu.utfpr.ondeestou.ConfActivity">
+
+    <PreferenceCategory android:title="Mapa">
+
+        <EditTextPreference
+            android:inputType="number"
+            android:title="Tempo de leitura em Segundos"
+            android:maxLength="2"
+            android:summary="Tempo para leitura de dados"
+            android:defaultValue="5"
+            android:key="requestTime" />
+
+        <ListPreference
+            android:title="Tipo de Mapa"
+            android:summary="%s"
+            android:entries="@array/tipos"
+            android:entryValues="@array/tiposValue"
+            android:defaultValue="Normal"
+            android:key="mapKind"/>
+
+        <ListPreference
+            android:title="Zoom do Mapa"
+            android:summary="%s"
+            android:entries="@array/zoom"
+            android:entryValues="@array/zoomValue"
+            android:key="mapZoom"/>
+
+        <EditTextPreference
+            android:inputType="phone"
+            android:title="IP do servidor"
+            android:maxLength="15"
+            android:summary="Pressione para editar"
+            android:defaultValue="192.168.0.1"
+            android:key="serverIP"
+            />
+
+
+
+
+    </PreferenceCategory>
+</PreferenceScreen>
