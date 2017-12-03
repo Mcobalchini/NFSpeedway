@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *.iml
 .gradle
 /local.properties
@@ -10,6 +9,5 @@
 .externalNativeBuild
 /.idea/
 gradle.properties
-=======
-/build
->>>>>>> upstream/master
+/app/build/
+
