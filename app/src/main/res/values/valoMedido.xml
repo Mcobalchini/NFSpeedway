@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="zoom">
-        <item>Continental</item>
-        <item>Cidade</item>
-        <item>Ruas</item>
-        <item>Prédios</item>
+    <string-array name="medidor">
+        <item>M/s</item>
+        <item>Km/h</item>
     </string-array>
 
-    <string-array name="zoomValue">
-        <item>5.0f</item>
-        <item>10.0f</item>
-        <item>15.0f</item>
-        <item>60.0f</item>
-
+    <string-array name="valorMedidor">
+        <item>3.6</item>
+        <item>1.0</item>
     </string-array>
 </resources>

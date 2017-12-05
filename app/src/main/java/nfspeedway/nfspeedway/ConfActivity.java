@@ -1,7 +1,7 @@
-package br.edu.utfpr.ondeestou;
-import android.content.SharedPreferences;
-import android.preference.PreferenceActivity;
+package nfspeedway.nfspeedway;
+
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 
 public class ConfActivity extends PreferenceActivity {
     @Override
