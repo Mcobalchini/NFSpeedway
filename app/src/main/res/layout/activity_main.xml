@@ -122,7 +122,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="229dp">
+            android:layout_height="267dp">
 
             <TextView
                 android:id="@+id/tvMedidor"
@@ -154,15 +154,18 @@
                 android:onClick="btIniciarOnClick"
                 android:text="Iniciar"
                 app:layout_constraintTop_toBottomOf="@+id/tvVelocidade"
-                tools:layout_editor_absoluteX="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="8dp"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent" />
 
             <TextView
                 android:id="@+id/tvVelocidade"
-                android:layout_width="344dp"
-                android:layout_height="107dp"
+                android:layout_width="348dp"
+                android:layout_height="120dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:text="0"
