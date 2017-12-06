@@ -3,10 +3,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
 import nfspeedway.nfspeedway.connection.DbConn;
-import nfspeedway.nfspeedway.ondeestou.entidade.SpeedPessoa;
+import nfspeedway.nfspeedway.Entidade.SpeedPessoa;
 
 /**
  * Created by Matheus Eduardo on 05/12/2017.
@@ -23,16 +22,16 @@ public class SpeedDao {
 
     public void incluirRegistro(SpeedPessoa speedPessoa) {
         ContentValues registro = new ContentValues();        
-        registro.put("codigo", speedPessoa.getCodigo());
+        registro.put("codigo", speedPessoa.getCodigoFb());
         registro.put("nome", speedPessoa.getNome()); 
-		registro.put("velocidade", speedPessoa.Getvelocidade());
+		registro.put("velocidade", speedPessoa.getVelocidade());
 
         db.insert(TABLE_NAME, null, registro);
 
     }
 
     public boolean verifExists(int id) {
-        Cursor registro = db.rawQuery("select * from SpeedPessoa where id_ = ?", new int {"id"});
+        Cursor registro = db.rawQuery("select * from SpeedPessoa where id_ = ?", new String[] {id+""});
         if(registro.moveToNext()){
             return true;
         }else{

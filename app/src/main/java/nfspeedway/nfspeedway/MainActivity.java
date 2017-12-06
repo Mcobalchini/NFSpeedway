@@ -1,6 +1,7 @@
 package nfspeedway.nfspeedway;
 
 import android.Manifest;
+import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -28,24 +29,43 @@ import com.facebook.login.LoginManager;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
-import static nfspeedway.nfspeedway.R.id.tvTempo;
+import nfspeedway.nfspeedway.Entidade.SpeedPessoa;
+import nfspeedway.nfspeedway.Entidade.UserService;
+import nfspeedway.nfspeedway.dao.SpeedDao;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static java.lang.Float.NaN;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
 
     private TextView tvVelocidade;
     private SharedPreferences conf;
 	private String idFb,name,surname,medidor = "";
-	double media;
+	float media;
 	LocationManager lm;
+    private UserService userService;
     Location localizacaoAnterior = null;    
     private float multiplicador;
     private ArrayList<Float> velocidades;
     private boolean iniciar = false;
 	SpeedDao speedDao;
+    private final String TAG = this.getClass().getSimpleName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://172.30.10.48:1337/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        this.userService = retrofit.create(UserService.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 		speedDao = new SpeedDao(this); 
@@ -59,8 +79,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         if (!lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
 
             AlertDialog.Builder alerta = new AlertDialog.Builder(this);
-            alerta.setTitle("Atenção");
-            alerta.setMessage("O GPS é necessário para a aplicação e não está habilitado. Deseja Habilitar??");
+            alerta.setTitle("AtenÃ§Ã£o");
+            alerta.setMessage("O GPS Ã© necessÃ¡rio para a aplicaÃ§Ã£o e nÃ£o estÃ¡ habilitado. Deseja Habilitar??");
             alerta.setCancelable(false);
             alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
@@ -93,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             if(!name.equals("") || name != null || name != ""){
                 name = "Nome: " + name+" "+surname ;
             }else{
-                name = "Ainda sem informações de nome\nTente relogar-se";
+                name = "Ainda sem informaÃ§Ãµes de nome\nTente relogar-se";
             }
 
             nameView.setText(name);
@@ -109,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         retornaTipoMedidor();
     }
 
-    public class DownloadImage extends AsyncTask<String, Void, Bitmap> { //Faz uma solicitação get para baixar a foto de perfil
+    public class DownloadImage extends AsyncTask<String, Void, Bitmap> { //Faz uma solicitaï¿½ï¿½o get para baixar a foto de perfil
         ImageView bmImage;
 
         public DownloadImage(ImageView bmImage){
@@ -149,10 +169,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void btConfigOnClick(View view) {
         iniciar = false;
         tvVelocidade.setText("0,00");
-        ((TextView) findViewById(tvTempo)).setText("Tempo: 0.0"); //Tempo em segundos
-        ((TextView) findViewById(R.id.tvDistancia)).setText("Distancia: 0.0"); //Escreve em tela
         ((Button) findViewById(R.id.btIniciar)).setText("Iniciar");
-        startActivity (new Intent(this, ConfActivity.class)); //Redireciona para a tela de configurações
+        startActivity (new Intent(this, ConfActivity.class)); //Redireciona para a tela de configuraï¿½ï¿½es
     }
 
 
@@ -169,8 +187,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @Override
     public void onProviderDisabled(String provider) {
         tvVelocidade.setText("0,00");
-        ((TextView) findViewById(tvTempo)).setText("Gps desabilitado"); //Tempo em segundos
-        ((TextView) findViewById(R.id.tvDistancia)).setText(""); //Escreve em tela
     }
 
 
@@ -181,18 +197,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             float speed = 0;
             localizacaoAtual.getTime();//Pega em milisegundos a data atual para posteriormente calcular com a data futura.
 
-            if (localizacaoAnterior != null) /*Verifica se a localização antiga já existe.
-                                    Na primeira verificação sempre será nulo.
-                                    Após obter a segunda localização, ele armazena a anterior nessa variavel,
+            if (localizacaoAnterior != null) /*Verifica se a localizaÃ§Ã£o antiga jÃ¡ existe.
+                                    Na primeira verificaÃ§Ã£o sempre serÃ¡ nulo.
+                                    ApÃ³s obter a segunda localizaÃ§Ã£o, ele armazena a anterior nessa variavel,
                                     para assim calcular a distancia entre a atual e a anterior*/ {
 				
-				//Retorna a distancia aproximada em metros entre a localização atual e a passada por parâmetro.
-                float distanciaPercorrida = localizacaoAtual.distanceTo(localizacaoAnterior);				
-                ((TextView) findViewById(R.id.tvDistancia)).
-                        setText("Distancia: " + distanciaPercorrida); //Escreve em tela
-
+				//Retorna a distancia aproximada em metros entre a localizaï¿½ï¿½o atual e a passada por parï¿½metro.
+                float distanciaPercorrida = localizacaoAtual.distanceTo(localizacaoAnterior);
                 float tempoGasto = ((localizacaoAtual.getTime() - localizacaoAnterior.getTime()) / 1000);
-                ((TextView) findViewById(tvTempo)).setText("Tempo: " + tempoGasto); //Tempo em segundos
 
                 // calcula a velocidade
                 if (tempoGasto > 0) {
@@ -220,6 +232,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             ((Button) findViewById(R.id.btIniciar)).setText("Pausar");
             velocidades = new ArrayList<>();
 
+
+
         }else{
             iniciar = false;
             ((Button) findViewById(R.id.btIniciar)).setText("Iniciar");
@@ -234,20 +248,27 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 }
             }
             media = soma/qtd;
-			inserirRegistro()
+            if(media > 0) {
+                inserirRegistro();
+            }
             Toast.makeText(MainActivity.this,media + "",Toast.LENGTH_LONG).show();
 
         }
     }
 
+    public void btListarOnClick(View v){
+        Intent main = new Intent(MainActivity.this, ListActivity.class);
+        startActivity(main);
+    }
+
     private float getVelocidadeMedia(float distanciaPercorrida, float tempoGasto) {
-        // Faz o calculo de velocidade, através da distancia divida pelo tempo
+        // Faz o calculo de velocidade, atraves da distancia divida pelo tempo
         float speed = 0;
         if(distanciaPercorrida > 0) {
-            float distanciaPercorridaPorSegundo = tempoGasto > 0 ? distanciaPercorrida / tempoGasto : 0; //If ternário
+            float distanciaPercorridaPorSegundo = tempoGasto > 0 ? distanciaPercorrida / tempoGasto : 0; //If ternï¿½rio
             float distanciaPercorridaPorMinuto = distanciaPercorridaPorSegundo * 60;
             float distanciaPercorridaPorHora = distanciaPercorridaPorMinuto * 60;
-            speed = distanciaPercorridaPorHora > 0 ? (distanciaPercorridaPorHora / 1000) : 0; //Ternário
+            speed = distanciaPercorridaPorHora > 0 ? (distanciaPercorridaPorHora / 1000) : 0; //Ternï¿½rio
         }
         return speed;
     }
@@ -259,6 +280,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         registro.setNome(name);        
 		registro.setVelocidade(media);
         speedDao.incluirRegistro( registro );
+        createSpeedPessoaOnServer(registro);
     }
 
     public void retornaTipoMedidor(){
@@ -271,10 +293,35 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
         ((TextView) findViewById(R.id.tvMedidor)). setText(medidor); //Escreve em tela
     }
-    
+
+
+
+
+
+    /**
+     * Salva uma speedPessoa e altera se jÃ¡ existir (na base online)
+     * @param newSpeedPessoa
+     */
+    private void createSpeedPessoaOnServer(SpeedPessoa newSpeedPessoa) {
+        Call<SpeedPessoa> call = this.userService.createSpeedPessoa(newSpeedPessoa);
+        call.enqueue(new Callback<SpeedPessoa>() {
+            @Override
+            public void onResponse(Call<SpeedPessoa> call, Response<SpeedPessoa> response) {
+                Log.e(TAG, response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<SpeedPessoa> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Unable to create post" , Toast.LENGTH_LONG).show();
+                Log.e(TAG,t.toString());
+            }
+        });
+    }
+
+    public void btMinimizarOnClick(View view) {
+        Intent i = new Intent(this, ServiceActivity.class);
+        startService(i);
+        finish();
+    }
+
 }
-
-
-
-
-

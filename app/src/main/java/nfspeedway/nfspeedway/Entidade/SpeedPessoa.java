@@ -1,5 +1,5 @@
 
-package nfspeedway.nfspeedway.entidade;
+package nfspeedway.nfspeedway.Entidade;
 
 /**
  * Created by Matheus Eduardo on 05/12/2017.

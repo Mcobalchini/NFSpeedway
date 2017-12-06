@@ -1,50 +1,59 @@
 package nfspeedway.nfspeedway;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
-import android.os.AsyncTask;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
-
-import com.google.android.gms.analytics.ExceptionReporter;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.ObjectInputStream;
-import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+import nfspeedway.nfspeedway.Entidade.SpeedPessoa;
+import nfspeedway.nfspeedway.Entidade.UserService;
 import nfspeedway.nfspeedway.dao.SpeedDao;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ListActivity extends AppCompatActivity {
 
     SpeedDao db;
     private ListView lvLocal;
-    DataOutputStream dout;
-    DataInputStream din;
-    ObjectInputStream ois;
-    private Socket cliente;
     private SharedPreferences conf;
-
+    private UserService userService;
+    public List<SpeedPessoa> speeds = new ArrayList<>();
+    private final String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         conf = getSharedPreferences("nfspeedway.nfspeedway_preferences", Context.MODE_PRIVATE);
-        listar(); 
+        lvLocal = (ListView) findViewById(R.id.lvLocal);
+        ArrayAdapter<SpeedPessoa> adapter = new ArrayAdapter<>(ListActivity.this,
+                android.R.layout.simple_list_item_1, speeds);
+        lvLocal.setAdapter(adapter);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://172.30.10.48:1337/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        this.userService = retrofit.create(UserService.class);
+        listar();
         if (verificaConexao()) {
-            new Conexao().execute("consultar");
+            getAllSpeedPessoa();
         } else {
             listar();
         }
@@ -56,7 +65,7 @@ public class ListActivity extends AppCompatActivity {
         db = new SpeedDao(this); // instancia o banco
         //Cursor para listar os registros
         Cursor registros = db.listarRegistros();
-        //Adapter para mostrar os registros dentro do listview (titulo e descrição)
+        //Adapter para mostrar os registros dentro do listview (titulo e descriï¿½ï¿½o)
         final SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
                 android.R.layout.simple_list_item_2,
                 registros,
@@ -65,77 +74,18 @@ public class ListActivity extends AppCompatActivity {
         );
 
         //List criado para popular o listview
-        List<String> local = new ArrayList<>();
-
+        List<SpeedPessoa> local = new ArrayList<>();
+        SpeedPessoa speedPessoa = new SpeedPessoa();
         while (registros.moveToNext()) {//enquanto houverem registros
-            //adiciona na lista
-            local.add(registros.getInt(registros.getColumnIndex("_id")) + " - " +
-                    registros.getString(registros.getColumnIndex("velocidade")) + " - " +
-                    registros.getString(registros.getColumnIndex("nome")) + " - " + "\n");
+            speedPessoa.setCodigoFb("teste");
+            speedPessoa.setNome("teste");
+            speedPessoa.setVelocidade(registros.getColumnIndex("velocidade"));
+            local.add(speedPessoa);
         }
         //define o adapter para o listview
         lvLocal.setAdapter(adapter);
     }
 
-    class Conexao extends AsyncTask<String,Void,String> {
-        private ProgressDialog dialog;
-        String resposta;
-        ArrayList <String> lista = new ArrayList<>();
-        @Override
-        protected void onPreExecute() {
-            dialog = new ProgressDialog(ListActivity.this);
-            dialog.setTitle("Aguarde...");
-            dialog.setMessage("Recebendo dados do servidor");
-            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            dialog.setCancelable(false);
-            dialog.show();
-            resposta = new String();
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            dialog.dismiss();
-            if(resposta.equals("Listando registros do servidor")) {
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(ListActivity.this,
-                        android.R.layout.simple_list_item_1, lista);
-
-                lvLocal.setAdapter(adapter);
-            }
-            Toast.makeText(ListActivity.this,resposta,Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-
-            //Cursor registros = db.listarRegistros();
-            try {
-                if(cliente == null) {
-                    cliente = new Socket();
-                    cliente.connect(new InetSocketAddress(conf.getString("serverIP","192.168.2.111"), 6789),7000);
-                    dout = new DataOutputStream(cliente.getOutputStream());
-                    din = new DataInputStream(cliente.getInputStream());
-                    ois = new ObjectInputStream(cliente.getInputStream());
-                }else{
-                    cliente.connect(new InetSocketAddress(conf.getString("serverIP","192.168.2.111"), 6789),7000);
-                    din = new DataInputStream(cliente.getInputStream());
-                }
-                dout.writeUTF("consultar");
-                try {
-                    lista = (ArrayList<String>) ois.readObject();
-                } catch (ClassNotFoundException e) {
-                    return resposta = "Erro não tratado";
-                }
-                dout.flush();
-
-            } catch (Exception e) {
-                return "Não foi possível se conectar";
-            }
-            return resposta = "Listando registros do servidor";
-
-        }
-
-
-    }
     public  boolean verificaConexao() {
         boolean isConnected;
         ConnectivityManager conectivtyManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -149,4 +99,23 @@ public class ListActivity extends AppCompatActivity {
         return isConnected;
     }
 
+    /**
+     * Busca toas as speed na base online.
+     */
+    private void getAllSpeedPessoa() {
+
+        Call<List<SpeedPessoa>> getAllSpeedPessoasCall = this.userService.getAllSpeedPessoa();
+
+        getAllSpeedPessoasCall.enqueue(new Callback<List<SpeedPessoa>>() {
+            @Override
+            public void onResponse(Call<List<SpeedPessoa>> call, Response<List<SpeedPessoa>> response) {
+                speeds = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<List<SpeedPessoa>> call, Throwable t) {
+                Log.e(TAG, "Erro ao enviar registro.");
+            }
+        });
+    }
 }

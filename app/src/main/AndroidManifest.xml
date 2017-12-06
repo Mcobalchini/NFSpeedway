@@ -5,13 +5,11 @@
 
     <uses-permission android:name="com.example.servicestest.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -51,6 +49,8 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".ConfActivity"></activity>
+        <activity android:name=".ListActivity"></activity>
+        <service android:name=".ServiceActivity"></service>
     </application>
 
 </manifest>
