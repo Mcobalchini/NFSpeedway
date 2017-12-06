@@ -27,7 +27,7 @@
             <Button
                 android:id="@+id/btConfig"
                 android:layout_width="122dp"
-                android:layout_height="44dp"
+                android:layout_height="48dp"
                 android:layout_alignEnd="@+id/login_button"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="8dp"
@@ -42,7 +42,9 @@
                 app:layout_constraintLeft_toRightOf="@+id/profileImage"
                 app:layout_constraintRight_toLeftOf="@+id/button2"
                 app:layout_constraintTop_toBottomOf="@+id/tv_Name"
-                app:layout_constraintVertical_bias="0.645" />
+                app:layout_constraintVertical_bias="0.645"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
 
             <ImageView
                 android:id="@+id/profileImage"
@@ -57,53 +59,48 @@
                 app:layout_constraintVertical_bias="0.102"
                 tools:layout_constraintBottom_creator="1"
                 tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                tools:layout_constraintTop_creator="1" />
+                tools:layout_constraintTop_creator="1"
+                android:layout_marginStart="16dp" />
 
             <Button
                 android:id="@+id/button2"
                 style="@style/com_facebook_loginview_default_style"
                 android:layout_width="115dp"
-                android:layout_height="35dp"
+                android:layout_height="37dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginTop="20dp"
                 android:onClick="logout"
                 android:text="Sair"
                 android:textColorLink="@drawable/com_facebook_button_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_Name"
-                tools:layout_constraintRight_creator="1"
                 tools:layout_constraintTop_creator="1" />
 
             <TextView
                 android:id="@+id/tv_Name"
                 android:layout_width="235dp"
                 android:layout_height="19dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/profileImage"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
-                tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                tools:layout_constraintTop_creator="1" />
+                tools:layout_constraintTop_creator="1"
+                tools:layout_editor_absoluteX="109dp" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
                 android:text="@string/welcome"
                 android:textSize="20sp"
                 app:layout_constraintBaseline_toBaselineOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_constraintBaseline_creator="1"
-                tools:layout_constraintLeft_creator="1" />
+                tools:layout_editor_absoluteX="133dp" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
@@ -124,14 +121,27 @@
             android:layout_width="match_parent"
             android:layout_height="267dp">
 
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:onClick="btListarOnClick"
+                android:text="Listar Registros"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btIniciar" />
+
             <TextView
                 android:id="@+id/tvMedidor"
                 android:layout_width="362dp"
                 android:layout_height="33dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginEnd="0dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="                 "
@@ -148,20 +158,22 @@
 
             <Button
                 android:id="@+id/btIniciar"
-                android:layout_width="345dp"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:onClick="btIniciarOnClick"
                 android:text="Iniciar"
-                app:layout_constraintTop_toBottomOf="@+id/tvVelocidade"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintVertical_bias="1.0"
-                android:layout_marginRight="8dp"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginLeft="8dp"
+                app:layout_constraintHorizontal_bias="0.476"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintHorizontal_bias="0.476" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvVelocidade"
+                app:layout_constraintVertical_bias="0.412" />
 
             <TextView
                 android:id="@+id/tvVelocidade"
@@ -188,22 +200,20 @@
     </android.support.v7.widget.CardView>
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btListarOnClick"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="181dp" />
-
-    <Button
         android:id="@+id/btMinimizar"
         android:layout_width="345dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:onClick="btMinimizarOnClick"
         android:text="Minimizar"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btIniciar"
+        app:layout_constraintVertical_bias="1.0" />
 
 </LinearLayout>

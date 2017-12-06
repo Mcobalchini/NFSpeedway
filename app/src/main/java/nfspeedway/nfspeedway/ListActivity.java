@@ -46,7 +46,7 @@ public class ListActivity extends AppCompatActivity {
         lvLocal.setAdapter(adapter);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.30.10.48:1337/")
+                .baseUrl("http://" + conf.getString("serverIP","172.30.10.48") + ":1337/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

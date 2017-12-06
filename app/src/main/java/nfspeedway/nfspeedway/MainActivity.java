@@ -60,16 +60,16 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        conf = getSharedPreferences("nfspeedway.nfspeedway_preferences",Context.MODE_PRIVATE);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.30.10.48:1337/")
+                .baseUrl("http://" + conf.getString("serverIP","172.30.10.48") + ":1337/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         this.userService = retrofit.create(UserService.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-		speedDao = new SpeedDao(this); 
-        conf = getSharedPreferences("nfspeedway.nfspeedway_preferences",Context.MODE_PRIVATE);
+		speedDao = new SpeedDao(this);
         retornaTipoMedidor();
         lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -295,9 +295,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
 
 
-
-
-
     /**
      * Salva uma speedPessoa e altera se já existir (na base online)
      * @param newSpeedPessoa
@@ -312,7 +309,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
             @Override
             public void onFailure(Call<SpeedPessoa> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Unable to create post" , Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Não foi possível enviar os dados ao servidor" , Toast.LENGTH_LONG).show();
                 Log.e(TAG,t.toString());
             }
         });
